@@ -6,7 +6,6 @@ sys.path.append('../insightface/src/common')
 
 from imutils import paths
 import numpy as np
-# import face_model
 import pickle
 import cv2
 import os

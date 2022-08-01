@@ -172,7 +172,7 @@ class RegistrationModule:
                         help="path to serialized db of facial embeddings")
         ap.add_argument("--model", default="faceEmbeddingModels/my_model.h5",
                         help="path to output trained model")
-        ap.add_argument("--le", default="faceEmbeddingModels/le.pickle",
+        ap.add_argument("--label_encoder", default="faceEmbeddingModels/label_encoder.pickle",
                         help="path to output label encoder")
 
         args = vars(ap.parse_args())

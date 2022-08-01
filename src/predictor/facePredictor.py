@@ -12,7 +12,7 @@ warnings.filterwarnings('ignore')
 sys.path.append('../insightface/deploy')
 sys.path.append('../insightface/src/common')
 from keras.models import load_model
-import face_preprocess
+from src.insightface.src.common import face_preprocess
 import numpy as np
 import pickle
 import cv2
@@ -35,7 +35,7 @@ class FacePredictor():
             self.embedding_model = face_model.FaceModel(self.image_size, self.model, self.threshold, self.det)
 
             self.embeddings = "./faceEmbeddingModels/embeddings.pickle"
-            self.le = "./faceEmbeddingModels/le.pickle"
+            self.le = "./faceEmbeddingModels/label_encoder.pickle"
 
             # Load embeddings and labels
             self.data = pickle.loads(open(self.embeddings, "rb").read())

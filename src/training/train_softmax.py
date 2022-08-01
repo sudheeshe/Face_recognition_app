@@ -35,8 +35,8 @@ class TrainFaceRecogModel:
         input_shape = embeddings.shape[1]
 
         # Build sofmax classifier
-        softmax = Custom_CNN_Model(input_shape=(input_shape,), num_classes=num_classes)
-        model = softmax.build()
+        cnn_obj = Custom_CNN_Model(input_shape=(input_shape,), num_classes=num_classes)
+        model = cnn_obj.build()
 
         # Create KFold
         cv = KFold(n_splits = 5, random_state = 42, shuffle=True)
@@ -57,6 +57,6 @@ class TrainFaceRecogModel:
 
         # write the face recognition model to output
         model.save(self.args['model'])
-        f = open(self.args["le"], "wb")
+        f = open(self.args["label_encoder"], "wb")
         f.write(pickle.dumps(le))
         f.close()

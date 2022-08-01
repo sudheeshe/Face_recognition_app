@@ -1,13 +1,10 @@
 import sys
-
-# from src.insightface.src.common import face_preprocess
 from src.insightface.src.common import face_preprocess
 
 sys.path.append('../insightface/deploy')
 sys.path.append('../insightface/src/common')
 
 from mtcnn.mtcnn import MTCNN
-# import face_preprocess
 import numpy as np
 import cv2
 import os
@@ -18,7 +15,6 @@ class TrainingDataCollector:
 
     def __init__(self, args):
         self.args = args
-        # Detector = mtcnn_detector
         self.detector = MTCNN()
 
     def collectImagesFromCamera(self):
